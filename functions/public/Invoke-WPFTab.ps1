@@ -1,16 +1,5 @@
 function Invoke-WPFTab {
-
-    <#
-
-    .SYNOPSIS
-        Sets the selected tab to the tab that was clicked
-
-    .PARAMETER ClickedTab
-        The name of the tab that was clicked
-
-    #>
-
-    Param (
+    param (
         [Parameter(Mandatory,position=0)]
         [string]$ClickedTab
     )
@@ -32,27 +21,26 @@ function Invoke-WPFTab {
 
     # Always reset the filter for the current tab
     if ($sync.currentTab -eq "Install") {
-        # Reset Install tab filter
         Find-AppsByNameOrDescription -SearchString ""
     } elseif ($sync.currentTab -eq "Tweaks") {
-        # Reset Tweaks tab filter
         Find-TweaksByNameOrDescription -SearchString ""
     }
 
-    # Show search bar in Install and Tweaks tabs
+    # Show search bar + package manager in Install and Tweaks tabs
     if ($tabNumber -eq 0 -or $tabNumber -eq 1) {
         $sync.SearchBar.Visibility = "Visible"
-        $searchIcon = ($sync.Form.FindName("SearchBar").Parent.Children | Where-Object { $_ -is [System.Windows.Controls.TextBlock] -and $_.Text -eq [char]0xE721 })[0]
-        if ($searchIcon) {
-            $searchIcon.Visibility = "Visible"
-        }
+        $searchBarArea = $sync["Form"].FindName("WPFSearchBarArea")
+        if ($searchBarArea) { $searchBarArea.Visibility = "Visible" }
     } else {
         $sync.SearchBar.Visibility = "Collapsed"
-        $searchIcon = ($sync.Form.FindName("SearchBar").Parent.Children | Where-Object { $_ -is [System.Windows.Controls.TextBlock] -and $_.Text -eq [char]0xE721 })[0]
-        if ($searchIcon) {
-            $searchIcon.Visibility = "Collapsed"
-        }
-        # Hide the clear button if it's visible
+        $searchBarArea = $sync["Form"].FindName("WPFSearchBarArea")
+        if ($searchBarArea) { $searchBarArea.Visibility = "Collapsed" }
         $sync.SearchBarClearButton.Visibility = "Collapsed"
+    }
+
+    # Show package manager toolbar only on Install tab
+    $installOptionsBar = $sync["Form"].FindName("WPFInstallOptionsBar")
+    if ($installOptionsBar) {
+        $installOptionsBar.Visibility = if ($tabNumber -eq 0) { "Visible" } else { "Collapsed" }
     }
 }

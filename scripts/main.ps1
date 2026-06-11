@@ -268,6 +268,8 @@ Set-WinUtilTaskbaritem -state "None"
 
 # Set the titlebar
 $sync["Form"].title = $sync["Form"].title + " " + $sync.version
+$versionText = $sync["Form"].FindName("WPFVersionText")
+if ($versionText) { $versionText.Text = "v" + $sync.version }
 # Set the commands that will run when the form is closed
 $sync["Form"].Add_Closing({
     $sync.runspace.Dispose()
@@ -323,14 +325,19 @@ $sync["Form"].Add_MouseLeftButtonDown({
 })
 
 $sync["Form"].Add_MouseDoubleClick({
-    if ($_.OriginalSource.Name -eq "NavDockPanel" -or
-        $_.OriginalSource.Name -eq "GridBesideNavDockPanel") {
+    $source = $_.OriginalSource
+    if ($source -is [System.Windows.Controls.Grid] -or $source.Name -eq "NavDockPanel") {
+        $parent = $source
+        while ($parent -and $parent.Name -ne "NavDockPanel" -and $parent.GetType().Name -ne "Window") {
+            $parent = [System.Windows.Media.VisualTreeHelper]::GetParent($parent)
+        }
+        if ($parent.Name -eq "NavDockPanel" -or $source.Name -eq "WPFMainGrid") {
             if ($sync["Form"].WindowState -eq [Windows.WindowState]::Normal) {
                 $sync["Form"].WindowState = [Windows.WindowState]::Maximized
-            }
-            else{
+            } else {
                 $sync["Form"].WindowState = [Windows.WindowState]::Normal
             }
+        }
     }
 })
 
