@@ -38,9 +38,5 @@ function Invoke-WPFTab {
         $sync.SearchBarClearButton.Visibility = "Collapsed"
     }
 
-    # Show package manager toolbar only on Install tab
-    $installOptionsBar = $sync["Form"].FindName("WPFInstallOptionsBar")
-    if ($installOptionsBar) {
-        $installOptionsBar.Visibility = if ($tabNumber -eq 0) { "Visible" } else { "Collapsed" }
-    }
+
 }

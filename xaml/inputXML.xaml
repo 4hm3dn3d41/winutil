@@ -1376,14 +1376,7 @@
                         </Border>
 
                         <!-- Action buttons (selected apps, etc) -->
-                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                            <!-- Package Manager RadioButtons -->
-                            <StackPanel Orientation="Horizontal" Margin="0,0,8,0" Visibility="Collapsed" Name="WPFInstallOptionsBar">
-                                <TextBlock Text="Package Manager:" FontSize="12" Foreground="{DynamicResource SecondaryForegroundColor}" VerticalAlignment="Center" Margin="0,0,8,0" Background="Transparent"/>
-                                <RadioButton Name="WingetRadioButton" Content="WinGet" GroupName="PackageManagerGroup" IsChecked="True" Margin="0,0,12,0"/>
-                                <RadioButton Name="ChocoRadioButton" Content="Chocolatey" GroupName="PackageManagerGroup"/>
-                            </StackPanel>
-                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Grid>
                 </Border>
 
