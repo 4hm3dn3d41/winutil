@@ -1328,10 +1328,10 @@
                 </Grid.RowDefinitions>
 
                 <!-- Search Bar (visible only on Install and Tweaks tabs) -->
-                <Border Grid.Row="0" Background="{DynamicResource SurfaceLow}" Padding="16,10" Visibility="Visible" Name="WPFSearchBarArea">
+                <Border Grid.Row="0" Background="{DynamicResource Transparent}" Padding="16,10" Visibility="Visible" Name="WPFSearchBarArea">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
@@ -1341,39 +1341,36 @@
                                 CornerRadius="6"
                                 Height="{DynamicResource SearchBarHeight}"
                                 MaxWidth="400"
+                                MinWidth="100"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0"
-                                           Text="&#xE721;"
-                                           FontFamily="Segoe MDL2 Assets"
-                                           FontSize="14"
-                                           Foreground="{DynamicResource SearchBoxForeground}"
-                                           VerticalAlignment="Center"
-                                           Margin="10,0,6,0"
-                                           Background="Transparent"/>
-                                <TextBox Grid.Column="1"
-                                         Name="SearchBar"
-                                         FontSize="{DynamicResource SearchBarTextBoxFontSize}"
-                                         Foreground="{DynamicResource MainForegroundColor}"
-                                         Background="Transparent"
-                                         BorderThickness="0"
-                                         Padding="0"
-                                         VerticalAlignment="Center"
-                                         Height="28"
-                                         ToolTip="Press Ctrl-F and type to search. Press Esc to reset."
-                                         Text="" />
+                                        <TextBox Grid.Column="0"
+                                        Name="SearchBar"
+                                        FontSize="{DynamicResource SearchBarTextBoxFontSize}"
+                                        Width="200"
+                                        Padding="0,6,0,0"
+                                        BorderThickness="0,0,0,1"
+                                        VerticalAlignment="Center"
+                                        ToolTip="Press Ctrl-F and type to search. Press Esc to reset."
+                                            />
+                                <TextBlock Grid.Column="1"
+                                        Text="&#xE721;"
+                                        FontFamily="Segoe MDL2 Assets"
+                                        FontSize="14"
+                                        VerticalAlignment="Center"
+                                        Padding="10,0,6,0"
+                                           />
+                            </Grid>
+                        </Border>
                                 <Button Grid.Column="2"
                                         Name="SearchBarClearButton"
                                         Style="{StaticResource SearchBarClearButtonStyle}"
                                         Visibility="Collapsed"/>
-                            </Grid>
-                        </Border>
 
                         <!-- Action buttons (selected apps, etc) -->
                         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"/>
