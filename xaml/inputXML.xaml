@@ -1540,7 +1540,7 @@
                          TAB 5: Win11 Creator
                          ════════════════════════════════════════════════════ -->
                     <TabItem Header="Win11ISO" Visibility="Collapsed" Name="WPFTab5">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="{DynamicResource TabContentMargin}">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="{DynamicResource TabContentMargin}">
                             <Grid Name="Win11ISOPanel">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
