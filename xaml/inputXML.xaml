@@ -894,8 +894,6 @@
 
         <!-- ── APP ENTRY STYLES ── -->
         <Style x:Key="AppEntryBorderStyle" TargetType="Border">
-            <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeDefaultColor}"/>
-            <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius" Value="6"/>
             <Setter Property="Padding" Value="8"/>
             <Setter Property="Width" Value="{DynamicResource AppEntryWidth}"/>
