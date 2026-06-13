@@ -303,6 +303,19 @@ function Invoke-WPFUIElements {
                             $baseWidth = [int]$entryInfo.ButtonWidth
                             $button.Width = [math]::Max($baseWidth, 350)
                         }
+                        $primaryButtons = @(
+                            "WPFInstall", "WPFUninstall", "WPFInstallUpgrade",
+                            "WPFOOSUbutton", "WPFAddUltPerf", "WPFRemoveUltPerf",
+                            "WPFFixesNTPPool", "WPFFeatureInstall", "WPFPanelAutologin",
+                            "WPFFixesUpdate", "WPFFixesNetwork", "WPFPanelDISM",
+                            "WPFFixesWinget", "WPFPanelControl", "WPFPanelComputer",
+                            "WPFPanelNetwork", "WPFPanelPower", "WPFPanelPrinter",
+                            "WPFPanelRegion", "WPFPanelRestore", "WPFPanelSound",
+                            "WPFPanelSystem", "WPFPanelTimedate"
+                        )
+                        if ($entryInfo.Name -in $primaryButtons) {
+                            $button.Style = $window.FindResource("PrimaryButtonStyle")
+                        }
                         [System.Windows.Automation.AutomationProperties]::SetName($button, $entryInfo.Content)
                         $itemsControl.Items.Add($button) | Out-Null
 
