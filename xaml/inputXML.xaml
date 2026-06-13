@@ -230,15 +230,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Border x:Name="BackgroundBorder"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{DynamicResource ButtonCornerRadius}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,12,0" RecognizesAccessKey="True"/>
-                            </Border>
-                        </Grid>
+                        <Border x:Name="BackgroundBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{DynamicResource ButtonCornerRadius}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,12,0" RecognizesAccessKey="True"/>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{DynamicResource AccentPressedColor}"/>
@@ -271,15 +269,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Border x:Name="BackgroundBorder"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{DynamicResource ButtonCornerRadius}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,12,0" RecognizesAccessKey="True"/>
-                            </Border>
-                        </Grid>
+                        <Border x:Name="BackgroundBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{DynamicResource ButtonCornerRadius}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,12,0" RecognizesAccessKey="True"/>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="#BF0000"/>
@@ -312,15 +308,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Border x:Name="BackgroundBorder"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{DynamicResource ButtonCornerRadius}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                            </Border>
-                        </Grid>
+                        <Border x:Name="BackgroundBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{DynamicResource ButtonCornerRadius}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,12,0" RecognizesAccessKey="True"/>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{DynamicResource SubtleFillPressedColor}"/>
@@ -406,22 +400,20 @@
             <Setter Property="ContentTemplate">
                 <Setter.Value>
                     <DataTemplate>
-                        <TextBlock Text="{Binding}" FontFamily="Segoe MDL2 Assets" FontSize="{DynamicResource IconFontSize}" Background="Transparent"/>
+                        <TextBlock Text="{Binding}" FontFamily="Segoe MDL2 Assets" FontSize="{DynamicResource IconFontSize}"/>
                     </DataTemplate>
                 </Setter.Value>
             </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Border x:Name="BackgroundBorder"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{DynamicResource ButtonCornerRadius}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </Grid>
+                        <Border x:Name="BackgroundBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{DynamicResource ButtonCornerRadius}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{DynamicResource ButtonBackgroundPressedColor}"/>
@@ -452,15 +444,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ToggleButton">
-                        <Grid>
-                            <Border x:Name="BackgroundBorder"
-                                    Background="{TemplateBinding Background}"
-                                    CornerRadius="{DynamicResource SidebarItemCornerRadius}"
-                                    Margin="8,2,8,2"
-                                    Padding="{DynamicResource SidebarItemPadding}">
-                                <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" RecognizesAccessKey="True"/>
-                            </Border>
-                        </Grid>
+                        <Border x:Name="BackgroundBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{DynamicResource SidebarItemCornerRadius}"
+                                Margin="8,2,8,2"
+                                Padding="{DynamicResource SidebarItemPadding}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{DynamicResource NavRailItemHover}"/>
@@ -585,13 +575,12 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="CheckBox">
-                        <Grid Background="Transparent" Margin="{DynamicResource CheckBoxMargin}">
-                            <BulletDecorator Background="Transparent">
+                        <Grid Margin="{DynamicResource CheckBoxMargin}">
+                            <BulletDecorator>
                                 <BulletDecorator.Bullet>
                                     <Grid Width="{DynamicResource CheckBoxBulletDecoratorSize}" Height="{DynamicResource CheckBoxBulletDecoratorSize}">
                                         <Border x:Name="Border"
                                                 BorderBrush="{DynamicResource CheckBoxStrokeColor}"
-                                                Background="Transparent"
                                                 BorderThickness="1.5"
                                                 Width="{DynamicResource CheckBoxBulletDecoratorSize}"
                                                 Height="{DynamicResource CheckBoxBulletDecoratorSize}"
@@ -772,36 +761,34 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ToggleButton">
-                        <Grid>
-                            <Border x:Name="BackgroundBorder"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{DynamicResource ButtonCornerRadius}">
-                                <Grid>
-                                    <Ellipse x:Name="ToggleDot"
-                                            Width="8" Height="16"
-                                            Fill="{DynamicResource ToggleButtonOnColor}"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Top"
-                                            Margin="0,3,5,0"/>
-                                    <Ellipse x:Name="ToggleDotCircle"
-                                            Width="8" Height="8"
-                                            Fill="{DynamicResource ButtonForegroundColor}"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Top"
-                                            Margin="0,3,5,0"
-                                            RenderTransformOrigin="0.5,0.5">
-                                        <Ellipse.RenderTransform>
-                                            <ScaleTransform ScaleX="1" ScaleY="1"/>
-                                        </Ellipse.RenderTransform>
-                                    </Ellipse>
-                                    <ContentPresenter HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"
-                                                    Margin="10,2,10,2"/>
-                                </Grid>
-                            </Border>
-                        </Grid>
+                        <Border x:Name="BackgroundBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{DynamicResource ButtonCornerRadius}">
+                            <Grid>
+                                <Ellipse x:Name="ToggleDot"
+                                        Width="8" Height="16"
+                                        Fill="{DynamicResource ToggleButtonOnColor}"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Margin="0,3,5,0"/>
+                                <Ellipse x:Name="ToggleDotCircle"
+                                        Width="8" Height="8"
+                                        Fill="{DynamicResource ButtonForegroundColor}"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Margin="0,3,5,0"
+                                        RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Margin="10,2,10,2"/>
+                            </Grid>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{DynamicResource ButtonBackgroundHoverColor}"/>
@@ -839,10 +826,9 @@
                                     CornerRadius="{DynamicResource ComboboxCornerRadius}"
                                     Background="{TemplateBinding Background}">
                                 <ToggleButton x:Name="ToggleButton"
-                                              Background="Transparent"
-                                              BorderThickness="0"
-                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                              ClickMode="Press">
+                                               BorderThickness="0"
+                                               IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                               ClickMode="Press">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
@@ -851,7 +837,6 @@
                                         <TextBlock Grid.Column="0"
                                                    Text="{TemplateBinding SelectionBoxItem}"
                                                    Foreground="{TemplateBinding Foreground}"
-                                                   Background="Transparent"
                                                    HorizontalAlignment="Left" VerticalAlignment="Center"
                                                    Margin="10,0,4,0"/>
                                         <Path Grid.Column="1"
@@ -902,13 +887,7 @@
             <Setter Property="Margin" Value="{DynamicResource CardMargin}"/>
         </Style>
 
-        <Style x:Key="CardStyle" TargetType="Border">
-            <Setter Property="Background" Value="{DynamicResource CardBackground}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeDefaultColor}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="CornerRadius" Value="{DynamicResource CardCornerRadius}"/>
-            <Setter Property="Padding" Value="{DynamicResource CardPadding}"/>
-            <Setter Property="Margin" Value="{DynamicResource CardMargin}"/>
+        <Style x:Key="CardStyle" TargetType="Border" BasedOn="{StaticResource BorderStyle}">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="UseLayoutRounding" Value="True"/>
         </Style>
@@ -939,7 +918,6 @@
                             <Grid Width="18" Height="18" Margin="0,0,8,0">
                                 <Border x:Name="CheckBoxBorder"
                                         BorderBrush="{DynamicResource CheckBoxStrokeColor}"
-                                        Background="Transparent"
                                         BorderThickness="1.5"
                                         Width="18" Height="18"
                                         CornerRadius="4"/>
@@ -1229,15 +1207,13 @@
                         Width="46" Height="36"
                         FontFamily="Segoe MDL2 Assets"
                         FontSize="10"
-                        Content="&#xE921;"
-                        Margin="0"/>
+                        Content="&#xE921;"/>
                 <Button Name="WPFCloseButton"
                         Style="{StaticResource HoverButtonStyle}"
                         Width="46" Height="36"
                         FontFamily="Segoe MDL2 Assets"
                         FontSize="10"
-                        Content="&#xE8BB;"
-                        Margin="0,0,0,0"/>
+                        Content="&#xE8BB;"/>
             </StackPanel>
         </Grid>
 
@@ -1261,7 +1237,7 @@
 
                     <!-- Offline Banner -->
                     <Border Name="WPFOfflineBanner" Grid.Row="0" Background="{DynamicResource OfflineBannerBackground}" Visibility="Collapsed" Padding="12,8">
-                        <TextBlock Text="&#x26A0; Offline Mode" Foreground="White" FontWeight="SemiBold" FontSize="12" HorizontalAlignment="Center" Background="Transparent"/>
+                        <TextBlock Text="&#x26A0; Offline Mode" Foreground="White" FontWeight="SemiBold" FontSize="12" HorizontalAlignment="Center"/>
                     </Border>
 
                     <!-- Navigation Items -->
@@ -1269,7 +1245,7 @@
                         <ToggleButton Name="WPFTab1BT" Height="{DynamicResource SidebarItemHeight}">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE718;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" Background="Transparent" FontSize="{DynamicResource TabButtonFontSize}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
                                     <Underline>A</Underline>pplications
                                 </TextBlock>
                             </StackPanel>
@@ -1277,7 +1253,7 @@
                         <ToggleButton Name="WPFTab2BT" Height="{DynamicResource SidebarItemHeight}">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE943;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" Background="Transparent" FontSize="{DynamicResource TabButtonFontSize}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
                                     <Underline>T</Underline>weaks
                                 </TextBlock>
                             </StackPanel>
@@ -1285,7 +1261,7 @@
                         <ToggleButton Name="WPFTab3BT" Height="{DynamicResource SidebarItemHeight}">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE713;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" Background="Transparent" FontSize="{DynamicResource TabButtonFontSize}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
                                     <Underline>C</Underline>onfig
                                 </TextBlock>
                             </StackPanel>
@@ -1293,7 +1269,7 @@
                         <ToggleButton Name="WPFTab4BT" Height="{DynamicResource SidebarItemHeight}">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE90A;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" Background="Transparent" FontSize="{DynamicResource TabButtonFontSize}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
                                     <Underline>U</Underline>pdates
                                 </TextBlock>
                             </StackPanel>
@@ -1301,7 +1277,7 @@
                         <ToggleButton Name="WPFTab5BT" Height="{DynamicResource SidebarItemHeight}">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE7B7;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" Background="Transparent" FontSize="{DynamicResource TabButtonFontSize}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
                                     <Underline>W</Underline>in11 Creator
                                 </TextBlock>
                             </StackPanel>
@@ -1314,7 +1290,6 @@
                                Foreground="{DynamicResource TertiaryForegroundColor}"
                                HorizontalAlignment="Center"
                                Margin="0,0,0,12"
-                               Background="Transparent"
                                Name="WPFVersionText"/>
                 </Grid>
             </Border>
@@ -1356,15 +1331,13 @@
                                         Padding="0,6,0,0"
                                         BorderThickness="0,0,0,1"
                                         VerticalAlignment="Center"
-                                        ToolTip="Press Ctrl-F and type to search. Press Esc to reset."
-                                            />
+                                        ToolTip="Press Ctrl-F and type to search. Press Esc to reset."/>
                                 <TextBlock Grid.Column="1"
                                         Text="&#xE721;"
                                         FontFamily="Segoe MDL2 Assets"
                                         FontSize="14"
                                         VerticalAlignment="Center"
-                                        Padding="10,0,6,0"
-                                           />
+                                        Padding="10,0,6,0"/>
                             </Grid>
                         </Border>
                                 <Button Grid.Column="2"
@@ -1383,7 +1356,6 @@
                             Background="Transparent"
                             BorderBrush="Transparent"
                             BorderThickness="0"
-                            Padding="0"
                             SelectedIndex="0">
                     <TabControl.Resources>
                         <Style TargetType="TabPanel">
@@ -1395,7 +1367,7 @@
                          TAB 1: INSTALL (Applications)
                          ════════════════════════════════════════════════════ -->
                     <TabItem Header="Install" Visibility="Collapsed" Name="WPFTab1">
-                        <Grid Background="Transparent" Margin="{DynamicResource TabContentMargin}">
+                        <Grid Margin="{DynamicResource TabContentMargin}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="220"/>
                                 <ColumnDefinition Width="*"/>
@@ -1439,7 +1411,7 @@
 
                             <!-- Tweak Items -->
                             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                                <Grid Name="tweakspanel" Background="Transparent"/>
+                                <Grid Name="tweakspanel"/>
                             </ScrollViewer>
 
                             <!-- Bottom Bar: Run/Undo + Note -->
@@ -1475,7 +1447,7 @@
                          ════════════════════════════════════════════════════ -->
                     <TabItem Header="Config" Visibility="Collapsed" Name="WPFTab3">
                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="{DynamicResource TabContentMargin}">
-                            <Grid Name="featurespanel" Background="Transparent"/>
+                            <Grid Name="featurespanel"/>
                         </ScrollViewer>
                     </TabItem>
 
@@ -1559,7 +1531,7 @@
                                 </Grid>
 
                                 <!-- Updates Panel (future) -->
-                                <Grid Name="updatespanel" Background="Transparent" Margin="0,16,0,0"/>
+                                <Grid Name="updatespanel" Margin="0,16,0,0"/>
                             </StackPanel>
                         </ScrollViewer>
                     </TabItem>
@@ -1569,7 +1541,7 @@
                          ════════════════════════════════════════════════════ -->
                     <TabItem Header="Win11ISO" Visibility="Collapsed" Name="WPFTab5">
                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="{DynamicResource TabContentMargin}">
-                            <Grid Name="Win11ISOPanel" Background="Transparent">
+                            <Grid Name="Win11ISOPanel">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
@@ -1744,19 +1716,20 @@
                                             <Grid Margin="0,0,0,16">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="16"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
                                                 <Button Grid.Column="0"
                                                         Name="WPFWin11ISOChooseISOButton"
                                                         Content="Save as ISO File"
                                                         Style="{StaticResource PrimaryButtonStyle}"
-                                                        Padding="16,0"/>
-                                                <Button Grid.Column="2"
+                                                        Padding="16,0"
+                                                        Margin="0,0,8,0"/>
+                                                <Button Grid.Column="1"
                                                         Name="WPFWin11ISOChooseUSBButton"
                                                         Content="Write to USB Drive"
                                                         Style="{StaticResource DangerButtonStyle}"
-                                                        Padding="16,0"/>
+                                                        Padding="16,0"
+                                                        Margin="8,0,0,0"/>
                                             </Grid>
 
                                             <!-- USB write sub-panel -->
