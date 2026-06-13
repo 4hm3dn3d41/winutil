@@ -133,13 +133,11 @@
         <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="{DynamicResource HeaderFontSize}"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="{DynamicResource MainForegroundColor}"/>
         </Style>
 
         <Style x:Key="SubHeaderTextStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="{DynamicResource SubHeaderFontSize}"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="{DynamicResource MainForegroundColor}"/>
         </Style>
 
         <Style x:Key="SectionHeaderTextStyle" TargetType="TextBlock">
@@ -160,10 +158,8 @@
             <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
         </Style>
 
-        <Style x:Key="labelfortweaks" TargetType="{x:Type Label}">
+        <Style x:Key="labelfortweaks" TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
             <Setter Property="Foreground" Value="{DynamicResource MainForegroundColor}"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Foreground" Value="{DynamicResource AccentColor}"/>
@@ -189,15 +185,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Border x:Name="BackgroundBorder"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{DynamicResource ButtonCornerRadius}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,12,0" RecognizesAccessKey="True"/>
-                            </Border>
-                        </Grid>
+                        <Border x:Name="BackgroundBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{DynamicResource ButtonCornerRadius}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,0,12,0" RecognizesAccessKey="True"/>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{DynamicResource ButtonBackgroundPressedColor}"/>
@@ -513,9 +507,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{DynamicResource ButtonCornerRadius}">
-                            <Grid>
-                                <ScrollViewer x:Name="PART_ContentHost" Margin="2,0"/>
-                            </Grid>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="2,0"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -548,9 +540,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{DynamicResource ButtonCornerRadius}">
-                            <Grid>
-                                <ScrollViewer x:Name="PART_ContentHost" Margin="2,0"/>
-                            </Grid>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="2,0"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -675,31 +665,25 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type CheckBox}">
-                        <Grid x:Name="toggleSwitch">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Border Grid.Column="1" x:Name="Border"
-                                    CornerRadius="{DynamicResource ToggleSwitchCornerRadius}"
-                                    BorderThickness="0"
-                                    Width="{DynamicResource ToggleSwitchWidth}"
-                                    Height="{DynamicResource ToggleSwitchHeight}"
-                                    Background="{DynamicResource ToggleButtonOffColor}">
-                                <Ellipse x:Name="Ellipse"
-                                        Fill="{DynamicResource ToggleButtonThumbColor}"
-                                        Stretch="Uniform"
-                                        Width="{DynamicResource ToggleThumbSize}"
-                                        Height="{DynamicResource ToggleThumbSize}"
-                                        Margin="{DynamicResource ToggleThumbMargin}"
-                                        HorizontalAlignment="Left"
-                                        RenderTransformOrigin="0.5, 0.5">
-                                    <Ellipse.RenderTransform>
-                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
-                                    </Ellipse.RenderTransform>
-                                </Ellipse>
-                            </Border>
-                        </Grid>
+                        <Border x:Name="Border"
+                                CornerRadius="{DynamicResource ToggleSwitchCornerRadius}"
+                                BorderThickness="0"
+                                Width="{DynamicResource ToggleSwitchWidth}"
+                                Height="{DynamicResource ToggleSwitchHeight}"
+                                Background="{DynamicResource ToggleButtonOffColor}">
+                            <Ellipse x:Name="Ellipse"
+                                    Fill="{DynamicResource ToggleButtonThumbColor}"
+                                    Stretch="Uniform"
+                                    Width="{DynamicResource ToggleThumbSize}"
+                                    Height="{DynamicResource ToggleThumbSize}"
+                                    Margin="{DynamicResource ToggleThumbMargin}"
+                                    HorizontalAlignment="Left"
+                                    RenderTransformOrigin="0.5, 0.5">
+                                <Ellipse.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Cursor" Value="Hand"/>
@@ -948,7 +932,6 @@
             <Setter Property="Foreground" Value="{DynamicResource MainForegroundColor}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="4,0,0,0"/>
-            <Setter Property="Background" Value="Transparent"/>
         </Style>
 
         <Style x:Key="ToggleSwitchStyle" TargetType="CheckBox">
