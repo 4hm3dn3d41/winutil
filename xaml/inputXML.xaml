@@ -1303,35 +1303,40 @@
                 </Grid.RowDefinitions>
 
                 <!-- Search Bar (visible only on Install and Tweaks tabs) -->
-                <Border Grid.Row="0" Background="{DynamicResource Transparent}" Padding="16,10" Visibility="Visible" Name="WPFSearchBarArea">
+                <Border Grid.Row="0" Padding="16,10" Visibility="Visible" Name="WPFSearchBarArea">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- Search Input -->
                         <Border Grid.Column="0"
                                 Background="{DynamicResource SearchBoxBackground}"
                                 CornerRadius="6"
                                 Height="{DynamicResource SearchBarHeight}"
                                 MaxWidth="400"
                                 MinWidth="100"
+                                Padding="6,0,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                        <TextBox Grid.Column="0"
+                                <TextBox Grid.Column="0"
                                         Name="SearchBar"
                                         FontSize="{DynamicResource SearchBarTextBoxFontSize}"
                                         Width="200"
                                         Padding="0,6,0,0"
-                                        BorderThickness="0,0,0,1"
+                                        BorderThickness="0,0,0,2"
                                         VerticalAlignment="Center"
-                                        ToolTip="Press Ctrl-F and type to search. Press Esc to reset."/>
+                                        Background="Transparent"
+                                        ToolTip="Press Ctrl-F and type to search. Press Esc to reset.">
+                                    <TextBox.Resources>
+                                        <CornerRadius x:Key="ButtonCornerRadius">0</CornerRadius>
+                                    </TextBox.Resources>
+                                </TextBox>
                                 <TextBlock Grid.Column="1"
                                         Text="&#xE721;"
                                         FontFamily="Segoe MDL2 Assets"
@@ -1340,13 +1345,11 @@
                                         Padding="10,0,6,0"/>
                             </Grid>
                         </Border>
-                                <Button Grid.Column="2"
-                                        Name="SearchBarClearButton"
-                                        Style="{StaticResource SearchBarClearButtonStyle}"
-                                        Visibility="Collapsed"/>
 
-                        <!-- Action buttons (selected apps, etc) -->
-                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Button Grid.Column="1"
+                                Name="SearchBarClearButton"
+                                Style="{StaticResource SearchBarClearButtonStyle}"
+                                Visibility="Collapsed"/>
                     </Grid>
                 </Border>
 
