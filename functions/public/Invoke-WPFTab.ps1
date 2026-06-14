@@ -26,7 +26,7 @@ function Invoke-WPFTab {
         Find-TweaksByNameOrDescription -SearchString ""
     }
 
-    # Show search bar + package manager in Install and Tweaks tabs
+    # Show search bar on Install and Tweaks tabs
     if ($tabNumber -eq 0 -or $tabNumber -eq 1) {
         $sync.SearchBar.Visibility = "Visible"
         $searchBarArea = $sync["Form"].FindName("WPFSearchBarArea")
@@ -38,5 +38,21 @@ function Invoke-WPFTab {
         $sync.SearchBarClearButton.Visibility = "Collapsed"
     }
 
+    # Show/hide sidebar sections based on active tab
+    $installSidebar = $sync["Form"].FindName("InstallSidebar")
+    $tweaksSidebar = $sync["Form"].FindName("TweaksSidebar")
 
+    if ($tabNumber -eq 0) {
+        # Install tab
+        if ($installSidebar) { $installSidebar.Visibility = "Visible" }
+        if ($tweaksSidebar) { $tweaksSidebar.Visibility = "Collapsed" }
+    } elseif ($tabNumber -eq 1) {
+        # Tweaks tab
+        if ($installSidebar) { $installSidebar.Visibility = "Collapsed" }
+        if ($tweaksSidebar) { $tweaksSidebar.Visibility = "Visible" }
+    } else {
+        # Other tabs
+        if ($installSidebar) { $installSidebar.Visibility = "Collapsed" }
+        if ($tweaksSidebar) { $tweaksSidebar.Visibility = "Collapsed" }
+    }
 }

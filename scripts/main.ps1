@@ -178,10 +178,6 @@ $sync.Form.Add_Loaded({
 Invoke-WinutilThemeChange -theme $sync.preferences.theme
 
 
-# Now call the function with the final merged config
-Invoke-WPFUIElements -configVariable $sync.configs.appnavigation -targetGridName "appscategory" -columncount 1
-Initialize-WPFUI -targetGridName "appscategory"
-
 Initialize-WPFUI -targetGridName "appspanel"
 
 Invoke-WPFUIElements -configVariable $sync.configs.tweaks -targetGridName "tweakspanel" -columncount 2
@@ -196,6 +192,9 @@ Invoke-WPFUIElements -configVariable $sync.configs.feature -targetGridName "feat
 #===========================================================================
 
 $xaml.SelectNodes("//*[@Name]") | ForEach-Object {$sync["$("$($psitem.Name)")"] = $sync["Form"].FindName($psitem.Name)}
+
+# Create popups for app context menu (must be after SelectNodes so XAML elements exist)
+Initialize-WPFUI -targetGridName "appscategory"
 
 #Persist Package Manager preference across winutil restarts
 $sync.ChocoRadioButton.Add_Checked({
@@ -223,6 +222,17 @@ $sync.keys | ForEach-Object {
 
         if($($sync["$psitem"].GetType() | Select-Object -ExpandProperty Name) -eq "Button") {
             $sync["$psitem"].Add_Click({
+                [System.Object]$Sender = $args[0]
+                Invoke-WPFButton $Sender.name
+            })
+        }
+
+        if($($sync["$psitem"].GetType() | Select-Object -ExpandProperty Name) -eq "CheckBox") {
+            $sync["$psitem"].Add_Checked({
+                [System.Object]$Sender = $args[0]
+                Invoke-WPFButton $Sender.name
+            })
+            $sync["$psitem"].Add_Unchecked({
                 [System.Object]$Sender = $args[0]
                 Invoke-WPFButton $Sender.name
             })
@@ -377,7 +387,7 @@ $sync["Form"].Add_ContentRendered({
         $sync.WPFInstall.IsEnabled = $false
         $sync.WPFUninstall.IsEnabled = $false
         $sync.WPFInstallUpgrade.IsEnabled = $false
-        $sync.WPFGetInstalled.IsEnabled = $false
+        if ($sync.WPFGetInstalled) { $sync.WPFGetInstalled.IsEnabled = $false }
 
         # Show offline indicator
         Write-Host "Offline mode detected - Install tab disabled." -ForegroundColor Yellow

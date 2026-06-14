@@ -864,8 +864,7 @@
         <!-- ── CARD BORDER STYLE ── -->
         <Style x:Key="BorderStyle" TargetType="Border">
             <Setter Property="Background" Value="{DynamicResource CardBackground}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeDefaultColor}"/>
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="CornerRadius" Value="{DynamicResource CardCornerRadius}"/>
             <Setter Property="Padding" Value="{DynamicResource CardPadding}"/>
             <Setter Property="Margin" Value="{DynamicResource CardMargin}"/>
@@ -1221,49 +1220,67 @@
                         <TextBlock Text="&#x26A0; Offline Mode" Foreground="White" FontWeight="SemiBold" FontSize="12" HorizontalAlignment="Center"/>
                     </Border>
 
-                    <!-- Navigation Items -->
-                    <StackPanel Grid.Row="1" Margin="0,12,0,0">
-                        <ToggleButton Name="WPFTab1BT" Height="{DynamicResource SidebarItemHeight}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE718;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
+                    <!-- Nav Items + Sidebar Content -->
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Navigation Items -->
+                        <StackPanel Grid.Row="0" Margin="0,12,0,0">
+                            <ToggleButton Name="WPFTab1BT" Height="{DynamicResource SidebarItemHeight}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}" Margin="12,0">
                                     <Underline>A</Underline>pplications
                                 </TextBlock>
-                            </StackPanel>
-                        </ToggleButton>
-                        <ToggleButton Name="WPFTab2BT" Height="{DynamicResource SidebarItemHeight}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE943;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
+                            </ToggleButton>
+                            <ToggleButton Name="WPFTab2BT" Height="{DynamicResource SidebarItemHeight}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}" Margin="12,0">
                                     <Underline>T</Underline>weaks
                                 </TextBlock>
-                            </StackPanel>
-                        </ToggleButton>
-                        <ToggleButton Name="WPFTab3BT" Height="{DynamicResource SidebarItemHeight}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE713;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
+                            </ToggleButton>
+                            <ToggleButton Name="WPFTab3BT" Height="{DynamicResource SidebarItemHeight}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}" Margin="12,0">
                                     <Underline>C</Underline>onfig
                                 </TextBlock>
-                            </StackPanel>
-                        </ToggleButton>
-                        <ToggleButton Name="WPFTab4BT" Height="{DynamicResource SidebarItemHeight}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE90A;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
+                            </ToggleButton>
+                            <ToggleButton Name="WPFTab4BT" Height="{DynamicResource SidebarItemHeight}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}" Margin="12,0">
                                     <Underline>U</Underline>pdates
                                 </TextBlock>
-                            </StackPanel>
-                        </ToggleButton>
-                        <ToggleButton Name="WPFTab5BT" Height="{DynamicResource SidebarItemHeight}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE7B7;" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Margin="12,0,12,0"/>
-                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}">
+                            </ToggleButton>
+                            <ToggleButton Name="WPFTab5BT" Height="{DynamicResource SidebarItemHeight}">
+                                <TextBlock VerticalAlignment="Center" FontSize="{DynamicResource TabButtonFontSize}" Margin="12,0">
                                     <Underline>W</Underline>in11 Creator
                                 </TextBlock>
-                            </StackPanel>
-                        </ToggleButton>
-                    </StackPanel>
+                            </ToggleButton>
+                        </StackPanel>
+
+                        <!-- Install Sidebar: Actions + Package Manager + FOSS -->
+                        <StackPanel Name="InstallSidebar" Grid.Row="1" Margin="0,8,0,0">
+                            <Separator Background="{DynamicResource DividerStrokeColor}" Margin="12,0,12,8"/>
+                            <TextBlock Text="Actions" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource SecondaryForegroundColor}" Margin="12,0,0,6"/>
+                            <Button Name="WPFInstall" Content="Install/Upgrade Applications" Style="{StaticResource PrimaryButtonStyle}" Margin="12,0,12,4" Height="30"/>
+                            <Button Name="WPFUninstall" Content="Uninstall Applications" Margin="12,0,12,4" Height="30"/>
+                            <Button Name="WPFInstallUpgrade" Content="Upgrade all Applications" Margin="12,0,12,8" Height="30"/>
+                            <TextBlock Text="Package Manager" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource SecondaryForegroundColor}" Margin="12,0,0,6"/>
+                            <RadioButton Name="WingetRadioButton" Content="WinGet" GroupName="PackageManagerGroup" IsChecked="True" Margin="12,0,12,2" Foreground="{DynamicResource MainForegroundColor}"/>
+                            <RadioButton Name="ChocoRadioButton" Content="Chocolatey" GroupName="PackageManagerGroup" Margin="12,0,12,8" Foreground="{DynamicResource MainForegroundColor}"/>
+                            <CheckBox Name="WPFToggleFOSSHighlight" Content="Highlight FOSS" Style="{StaticResource ColorfulToggleSwitchStyle}" Margin="12,0,12,4"/>
+                            <Button Name="WPFselectedAppsButton" Content="Selected Apps: 0" Visibility="Collapsed" Margin="12,0,12,4" Height="30"/>
+                        </StackPanel>
+
+                        <!-- Tweaks Sidebar: Recommended Selections -->
+                        <StackPanel Name="TweaksSidebar" Grid.Row="1" Visibility="Collapsed" Margin="0,8,0,0">
+                            <Separator Background="{DynamicResource DividerStrokeColor}" Margin="12,0,12,8"/>
+                            <TextBlock Text="Recommended Selections" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource SecondaryForegroundColor}" Margin="12,0,0,6"/>
+                            <Button Name="WPFstandard" Content="Standard" Margin="12,0,12,4" Height="30"/>
+                            <Button Name="WPFminimal" Content="Minimal" Margin="12,0,12,4" Height="30"/>
+                            <Button Name="WPFAdvanced" Content="Advanced" Margin="12,0,12,4" Height="30"/>
+                            <Button Name="WPFClearTweaksSelection" Content="Clear" Margin="12,0,12,4" Height="30"/>
+                            <Button Name="WPFGetInstalledTweaks" Content="Get Installed Tweaks" Style="{StaticResource PrimaryButtonStyle}" Margin="12,0,12,4" Height="30"/>
+                        </StackPanel>
+                    </Grid>
 
                     <!-- Version info at bottom -->
                     <TextBlock Grid.Row="2"
@@ -1352,18 +1369,7 @@
                          ════════════════════════════════════════════════════ -->
                     <TabItem Header="Install" Visibility="Collapsed" Name="WPFTab1">
                         <Grid Margin="{DynamicResource TabContentMargin}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="220"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <!-- Sidebar: App Categories -->
-                            <Border Grid.Column="0" Style="{StaticResource CardStyle}" Padding="12" Margin="0,0,16,0">
-                                <Grid Name="appscategory" VerticalAlignment="Stretch"/>
-                            </Border>
-
-                            <!-- Main: App Panel -->
-                            <Grid Grid.Column="1" Name="appspanel" VerticalAlignment="Stretch"/>
+                            <Grid Name="appspanel" VerticalAlignment="Stretch"/>
                         </Grid>
                     </TabItem>
 
@@ -1373,33 +1379,17 @@
                     <TabItem Header="Tweaks" Visibility="Collapsed" Name="WPFTab2">
                         <Grid Margin="{DynamicResource TabContentMargin}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Recommended Selections -->
-                            <Border Grid.Row="0" Style="{StaticResource CardStyle}" Margin="0,0,0,16">
-                                <StackPanel>
-                                    <TextBlock Text="Recommended Selections"
-                                               Style="{StaticResource SectionHeaderTextStyle}"/>
-                                    <WrapPanel Orientation="Horizontal" Margin="0,8,0,0">
-                                        <Button Name="WPFstandard" Content="Standard" MinWidth="100" Height="30" Margin="0,0,8,0"/>
-                                        <Button Name="WPFminimal" Content="Minimal" MinWidth="100" Height="30" Margin="0,0,8,0"/>
-                                        <Button Name="WPFAdvanced" Content="Advanced" MinWidth="100" Height="30" Margin="0,0,8,0"/>
-                                        <Button Name="WPFClearTweaksSelection" Content="Clear" MinWidth="80" Height="30" Margin="0,0,8,0"/>
-                                        <Button Name="WPFGetInstalledTweaks" Content="Get Installed Tweaks" MinWidth="140" Height="30" Style="{StaticResource PrimaryButtonStyle}"/>
-                                    </WrapPanel>
-                                </StackPanel>
-                            </Border>
-
                             <!-- Tweak Items -->
-                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                                 <Grid Name="tweakspanel"/>
                             </ScrollViewer>
 
                             <!-- Bottom Bar: Run/Undo + Note -->
-                            <Grid Grid.Row="2" Margin="0,16,0,0">
+                            <Grid Grid.Row="1" Margin="0,16,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
