@@ -31,8 +31,9 @@ function Invoke-WPFUIElements {
     $HoverTextBlockStyle = $window.FindResource("HoverTextBlockStyle")
     $ColorfulToggleSwitchStyle = $window.FindResource("ColorfulToggleSwitchStyle")
     $ToggleButtonStyle = $window.FindResource("ToggleButtonStyle")
+    $PrimaryButtonStyle = $window.FindResource("PrimaryButtonStyle")
 
-    if (!$borderstyle -or !$HoverTextBlockStyle -or !$ColorfulToggleSwitchStyle) {
+    if (!$borderstyle -or !$HoverTextBlockStyle -or !$ColorfulToggleSwitchStyle -or !$PrimaryButtonStyle) {
         throw "Failed to retrieve Styles using 'FindResource' from main window element."
     }
 
@@ -297,12 +298,7 @@ function Invoke-WPFUIElements {
                         $button.Name = $entryInfo.Name
                         $button.Content = $entryInfo.Content
                         $button.HorizontalAlignment = "Left"
-                        $button.SetResourceReference([Windows.Controls.Control]::MarginProperty, "ButtonMargin")
-                        $button.SetResourceReference([Windows.Controls.Control]::FontSizeProperty, "ButtonFontSize")
-                        if ($entryInfo.ButtonWidth) {
-                            $baseWidth = [int]$entryInfo.ButtonWidth
-                            $button.Width = [math]::Max($baseWidth, 350)
-                        }
+                        $button.Style = $PrimaryButtonStyle
                         [System.Windows.Automation.AutomationProperties]::SetName($button, $entryInfo.Content)
                         $itemsControl.Items.Add($button) | Out-Null
 

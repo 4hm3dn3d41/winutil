@@ -260,7 +260,7 @@ function Show-CustomDialog {
     $okButton = New-Object Windows.Controls.Button
     $okButton.Content = "OK"
     $okButton.FontSize = $FontSize
-    $okButton.Width = 80
+    $okButton.Width = 130
     $okButton.Height = 30
     $okButton.HorizontalAlignment = [Windows.HorizontalAlignment]::Center
     $okButton.VerticalAlignment = [Windows.VerticalAlignment]::Bottom
